@@ -9,6 +9,8 @@ on:
 jobs:
   build-api:
     runs-on: ubuntu-latest
+    env:
+      USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
     steps:
       - name: Checkout code
@@ -24,10 +26,12 @@ jobs:
         run: docker build ./api --file ./api/Dockerfile.api --tag my-dockerhub-username/challenge-api:latest
 
       - name: Push the API Docker image
-        run: docker push my-dockerhub-username/challenge-api:latest
+        run: docker push $USERNAME/challenge-api:latest
 
   build-client:
     runs-on: ubuntu-latest
+    env:
+      USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
     steps:
       - name: Checkout code
@@ -43,4 +47,4 @@ jobs:
         run: docker build ./client --file ./client/Dockerfile.client --tag my-dockerhub-username/challenge-client:latest
 
       - name: Push the Client Docker image
-        run: docker push my-dockerhub-username/challenge-client:latest
+        run: docker push $USERNAME/challenge-client:latest
