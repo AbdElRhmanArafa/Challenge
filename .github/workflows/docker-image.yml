@@ -10,7 +10,7 @@ jobs:
   build-api:
     runs-on: ubuntu-latest
     env:
-      USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      USERNAME: abdelrahman2arafa
 
     steps:
       - name: Checkout code
@@ -31,7 +31,7 @@ jobs:
   build-client:
     runs-on: ubuntu-latest
     env:
-      USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      USERNAME: abdelrahman2arafa
 
     steps:
       - name: Checkout code
