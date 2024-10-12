@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - internal
+    ports:
+      - "80:80"
+    depends_on:
+      api:
+        condition: service_started
+      client:
+        condition: service_started
+      
+
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile.client
+    container_name: client
+    networks:
+      - internal
+
+  
+  api:
+    build:
+      context: api
+      dockerfile: Dockerfile.api
+    container_name: api
+    volumes:
+      - ./api/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf
+    depends_on:
+      db:
+        condition: service_started
+    networks:
+      - internal
+
+
+
+  db:
+    image: mysql:latest
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - internal
+
+
+volumes:
+  db-data:
+
+
+networks:
+  internal:
+    driver: bridge
+    
+    
