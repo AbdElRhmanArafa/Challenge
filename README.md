@@ -19,7 +19,7 @@ Before you begin, ensure you have the following installed on your machine:
 - **Docker Compose**
 
 ## Architecture
-![Architecture](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/assests/Architecture.png)
+![Architecture](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/refs/heads/main/assets/Architecture.png)
 
 ## Getting Started
 
@@ -39,13 +39,13 @@ docker-compose up --build
 ```
 > **Note:** --build for build a new images.
 
-![Docker Compose](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/assests/docker-compose.png)
+![Docker Compose](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/refs/heads/main/assets/docker-compose.png)
 ---
 
 ### Step 3: Access the Application
 you can access it by visiting the localhost in your browser:
 - **API**: [http://localhost:80](http://localhost:80)
-![API](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/assests/web-page.png)
+![API](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/refs/heads/main/assets/web-page.png)
 
 ### Step 4: uplaod the docker images to the docker hub
 ```bash
@@ -54,7 +54,7 @@ docker tag <name of image >:latest <user name>/challenge_api:latest
 docker push abdelrhmanarafa/challenge_api:latest
 ```
 link to the docker hub [Docker-hub](https://hub.docker.com/repositories/abdelrahman2arafa)
-![Docker Hub](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/assests/docker-hub.png)
+![Docker Hub](https://raw.githubusercontent.com/AbdElRhmanArafa/Challenge/refs/heads/main/assets/docker-hub.png)
 
 ---
 ## Docker Compose Configuration
